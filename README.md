@@ -1,6 +1,6 @@
 # vue-todos
 
-> A Vue.js project
+> A Vue.js project, rebuilt from http://codepen.io/tuelsch/pen/XXxzzy initialized with [vue-cli](https://github.com/vuejs/vue-cli)
 
 ## Build Setup
 
