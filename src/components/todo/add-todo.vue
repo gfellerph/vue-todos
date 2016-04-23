@@ -33,6 +33,7 @@
     border: none;
     background: none;
     outline: none;
+    font-size: inherit;
     
     border-bottom: 1px solid black;
   }
