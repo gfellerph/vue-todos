@@ -4,10 +4,10 @@
       <input v-bind:value="null" v-model="activeFilter" id="all" type="radio" name="todoFilter"/><span>all</span>
     </label>
     <label for="toggled">
-      <input value="true" v-model="activeFilter" id="toggled" type="radio" name="todoFilter"/><span>toggled</span>
+      <input v-bind:value="true" v-model="activeFilter" id="toggled" type="radio" name="todoFilter"/><span>toggled</span>
     </label>
     <label for="untoggled">
-      <input value="false" v-model="activeFilter" id="untoggled" type="radio" name="todoFilter"/><span>untoggled</span>
+      <input v-bind:value="false" v-model="activeFilter" id="untoggled" type="radio" name="todoFilter"/><span>untoggled</span>
     </label>
   </p>
 </template>
