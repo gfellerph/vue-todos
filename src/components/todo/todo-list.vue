@@ -1,6 +1,6 @@
 <template>
   <ul>
-    <li v-for="todo in todos | filterBy activeFilter in 'toggled'">
+    <li v-for="todo in filteredTodos">
       <todo-item v-bind:todo="todo"></todo-item>
     </li>
   </ul>
@@ -17,6 +17,11 @@
     },
     components: {
       todoItem
+    },
+    computed: {
+      filteredTodos: function () {
+        return this.todos.filter(todo => this.activeFilter === null || todo.toggled == this.activeFilter);
+      }
     }
   });
 </script>
