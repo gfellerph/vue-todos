@@ -13,14 +13,13 @@
   export default Vue.extend({
     props: {
       todos: Array,
-      activeFilter: null
     },
     components: {
       todoItem
     },
     computed: {
       filteredTodos: function () {
-        return this.todos.filter(todo => this.activeFilter === null || todo.toggled == this.activeFilter);
+        return this.todos/*.filter(todo => this.activeFilter === -1 || todo.toggled == this.activeFilter)*/;
       }
     }
   });

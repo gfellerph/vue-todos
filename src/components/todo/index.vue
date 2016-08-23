@@ -1,8 +1,8 @@
 <template>
   <div>
     <add-todo></add-todo>
-    <todo-filter v-bind:active-filter.sync="activeFilter"></todo-filter>
-    <todo-list v-bind:todos="todos" v-bind:active-filter="activeFilter"></todo-list>
+    <todo-filter></todo-filter>
+    <todo-list v-bind:todos="todos"></todo-list>
   </div>
 </template>
 
@@ -16,7 +16,7 @@
     data: function () {
       return {
         todos: [],
-        activeFilter: null
+        activeFilter: -1
       }
     },
     ready: function () {

@@ -1,7 +1,7 @@
 <template>
   <p>
     <label for="all">
-      <input v-bind:value="null" v-model="activeFilter" id="all" type="radio" name="todoFilter"/><span>all</span>
+      <input v-bind:value="-1" v-model="activeFilter" id="all" type="radio" name="todoFilter"/><span>all</span>
     </label>
     <label for="toggled">
       <input v-bind:value="true" v-model="activeFilter" id="toggled" type="radio" name="todoFilter"/><span>toggled</span>
@@ -16,8 +16,10 @@
   import Vue from 'vue';
 
   export default Vue.extend({
-    props: {
-      activeFilter: null
+    data() {
+      return {
+        activeFilter: -1
+      }
     }
   });
 </script>
