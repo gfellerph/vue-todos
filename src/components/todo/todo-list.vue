@@ -12,14 +12,24 @@
 
   export default Vue.extend({
     props: {
-      todos: Array,
+      activeFilter: [Number, Boolean]
     },
     components: {
       todoItem
     },
     computed: {
       filteredTodos: function () {
-        return this.todos/*.filter(todo => this.activeFilter === -1 || todo.toggled == this.activeFilter)*/;
+        return this.todos.filter(todo => this.activeFilter === -1 || todo.toggled == this.activeFilter);
+      }
+    },
+    vuex: {
+      getters: {
+        todos: function (state) {
+          return state.todos.todos;
+        },
+        activeFilter: function (state) {
+          return state.todos.activeFilter;
+        }
       }
     }
   });

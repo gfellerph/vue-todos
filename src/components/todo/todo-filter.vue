@@ -1,13 +1,36 @@
 <template>
   <p>
     <label for="all">
-      <input v-bind:value="-1" v-model="activeFilter" id="all" type="radio" name="todoFilter"/><span>all</span>
+      <input
+        value="-1"
+        v-bind:checked="activeFilter==-1"
+        v-on:change="changeFilter"
+        id="all"
+        type="radio"
+        name="todoFilter"
+      />
+      <span>all</span>
     </label>
     <label for="toggled">
-      <input v-bind:value="true" v-model="activeFilter" id="toggled" type="radio" name="todoFilter"/><span>toggled</span>
+      <input type="radio"
+        value="true"
+        v-bind:checked="activeFilter==true"
+        v-on:change="changeFilter"
+        id="toggled"
+        name="todoFilter"
+      />
+      <span>toggled</span>
     </label>
     <label for="untoggled">
-      <input v-bind:value="false" v-model="activeFilter" id="untoggled" type="radio" name="todoFilter"/><span>untoggled</span>
+      <input
+        value="false"
+        v-bind:checked="activeFilter==false"
+        v-on:change="changeFilter"
+        id="untoggled"
+        name="todoFilter"
+        type="radio"
+      />
+      <span>untoggled</span>
     </label>
   </p>
 </template>
@@ -16,9 +39,18 @@
   import Vue from 'vue';
 
   export default Vue.extend({
-    data() {
-      return {
-        activeFilter: -1
+    vuex: {
+      getters: {
+        activeFilter: function (state) {
+          return state.todos.activeFilter;
+        }
+      },
+      actions: {
+        changeFilter: function ({ dispatch }, e) {
+          dispatch('CHANGE_FILTER', {
+            activeFilter: JSON.parse(e.target.value),
+          });
+        }
       }
     }
   });

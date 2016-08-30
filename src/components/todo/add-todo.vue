@@ -19,10 +19,18 @@
         return this.newTodo.length == 0;
       }
     },
-    methods: {
-      addTodo: function () {
-        this.$dispatch('ADD_TODO', this.newTodo);
-        this.newTodo = '';
+    vuex: {
+      getters: {},
+      actions: {
+        addTodo: function ({ dispatch }) {
+          dispatch('ADD_TODO', {
+            todo: {
+              text: this.newTodo,
+              toggled: false,
+            }
+          });
+          this.newTodo = '';
+        },
       }
     }
   });
